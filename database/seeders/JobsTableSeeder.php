@@ -16,10 +16,11 @@ class JobsTableSeeder extends Seeder
         $faker = Faker::create();
 
         // Generate fake data and insert into the database
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 1010; $i++) {
             Job::create([
                 'job_title' => $faker->jobTitle,
                 'job_region' => $faker->city,
+                'company' => $faker->company,
                 'job_type' => $faker->randomElement(['Full-time', 'Part-time', 'Contract']),
                 'vacancy' => $faker->numberBetween(1, 10),
                 'experience' => $faker->randomElement(['Entry level', 'Mid level', 'Senior level']),

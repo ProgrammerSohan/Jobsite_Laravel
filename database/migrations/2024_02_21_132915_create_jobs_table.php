@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('job_title');
             $table->string('job_region');
+            $table->string('company');
             $table->string('job_type');
             $table->integer('vacancy');
             $table->string('experience');

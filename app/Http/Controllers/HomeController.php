@@ -25,9 +25,12 @@ class HomeController extends Controller
     public function index()
     {
        // $jobs = Job::select()->take(10)->orderby('id','desc')->get();
+       // $wehave = Job::select()->take(8)->orderBy('id','desc')->get();
        $jobs = Job::orderBy('id','desc')->paginate(10);
-        $totalJobs= Job::all()->count();
+       $totalJobs= Job::all()->count();
+        $wehave = Job::orderBy('id','desc')->paginate(8);
+        $carousel = Job::select()->take(50)->orderBy('id', 'desc')->get();
 
-        return view('home', compact('jobs','totalJobs'));
+        return view('home', compact('jobs','totalJobs','wehave','carousel'));
     }
 }
