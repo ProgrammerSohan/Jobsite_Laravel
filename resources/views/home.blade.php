@@ -119,7 +119,7 @@
     @foreach($jobs as $job)
 
           <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
-            <a href="job-single.html"></a>
+            <a href="{{route('single.job',$job->id)}}"></a>
             <div class="job-listing-logo">
               <img src="{{ $job->image}}" alt="{{ $job->job_title}}" class="img-fluid">
             </div>
