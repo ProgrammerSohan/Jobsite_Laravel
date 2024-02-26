@@ -106,13 +106,16 @@
 
         <div class="row mb-5 justify-content-center">
           <div class="col-md-7 text-center">
-            <h2 class="section-title mb-2">22,392 Related Jobs</h2>
+            <h2 class="section-title mb-2"> {{ $relatedJobsCount }} Related Jobs</h2>
           </div>
         </div>
         
         <ul class="job-listings mb-5">
+
+          @foreach($relatedJobs as $job)
+
           <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
-            <a href="job-single.html"></a>
+            <a href="{{route('single.job', $job->id)}}"></a>
             <div class="job-listing-logo">
               <img src="{{$job->image}}" alt="Image" class="img-fluid">
             </div>
@@ -131,10 +134,9 @@
             </div>
             
           </li>
-          
 
+          @endforeach
           
-
           
         </ul>
 
@@ -144,7 +146,7 @@
     </section>
     
 
-    <section class="bg-light pt-5 testimony-full">
+   <!--  <section class="bg-light pt-5 testimony-full">
         
         <div class="owl-carousel single-carousel">
 
@@ -197,6 +199,6 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
 @endsection
