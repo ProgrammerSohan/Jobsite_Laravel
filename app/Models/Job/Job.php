@@ -2,8 +2,9 @@
 
 namespace App\Models\Job;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Job extends Model
 {
@@ -24,8 +25,14 @@ class Job extends Model
         'responsibilities',
         'education_experience',
         'otherbenifits',
-        'image'
+        'image',
+        'category_id'
 
     ];
+
+    public function category()//category that owns the job.
+    {
+        return $this->belongsTo(Category::class);
+    }
 
 }
