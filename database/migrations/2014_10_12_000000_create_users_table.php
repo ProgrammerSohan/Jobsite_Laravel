@@ -20,7 +20,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-    }
+    }//cv,job_title,bio,twitter,facebook,linkedin
 
     /**
      * Reverse the migrations.
