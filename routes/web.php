@@ -26,3 +26,5 @@ Route::get('/jobs/single/{id}',[JobsController::class, 'single'])->name('single.
 Route::post('/jobs/save',[JobsController::class, 'saveJob'])->name('save.job');
 Route::post('/jobs/apply',[JobsController::class, 'jobApply'])->name('apply.job');
 
+
+//this is Sohan
