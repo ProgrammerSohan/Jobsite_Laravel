@@ -6,6 +6,7 @@ use App\Models\Job\Job;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Job\JobSaved;
+use Illuminate\Support\Facades\Auth;
 
 class JobsController extends Controller
 {
@@ -24,7 +25,12 @@ class JobsController extends Controller
          ->take(5)
          ->count();
 
-        return view('jobs.single',compact('job', 'relatedJobs','relatedJobsCount'));
+         //save job
+         $savedJob = JobSaved::where('job_id', $id)
+         ->where('user_id', Auth::user()->id)
+         ->count();
+
+        return view('jobs.single',compact('job', 'relatedJobs','relatedJobsCount','savedJob'));
 
     }
 
