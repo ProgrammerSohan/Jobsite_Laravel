@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Categories\CategoriesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Jobs\JobsController;
 use Illuminate\Support\Facades\Auth;
@@ -25,6 +26,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/jobs/single/{id}',[JobsController::class, 'single'])->name('single.job');
 Route::post('/jobs/save',[JobsController::class, 'saveJob'])->name('save.job');
 Route::post('/jobs/apply',[JobsController::class, 'jobApply'])->name('apply.job');
+
+Route ::get('/categories/single/{name}',[CategoriesController::class,'singleCategory'])->name('categories.single');
 
 
 //this is Sohan

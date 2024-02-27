@@ -8,12 +8,10 @@ use App\Models\Category;
 
 class CategoriesController extends Controller
 {
-    /* public function allCategories(){
+    public function singleCategory($name){
+        $category = Category::find($name);
 
-        $categories = Category::all();
-
-        return view('jobs.single', compact('categories'));
-
-     }*/
+        return view('categories.single', compact('category'));
+    }
 
 }
