@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Jobs;
 use App\Models\Job\Job;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Job\JobSaved;
 
 class JobsController extends Controller
 {
