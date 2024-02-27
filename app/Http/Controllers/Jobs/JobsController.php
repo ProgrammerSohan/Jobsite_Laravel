@@ -31,7 +31,11 @@ class JobsController extends Controller
          ->where('user_id', Auth::user()->id)
          ->count();
 
-        return view('jobs.single',compact('job', 'relatedJobs','relatedJobsCount','savedJob'));
+         //verifying if user applied to job
+         $appliedJob = Application::where('user_id',Auth::user()->id)
+         ->where('job_id', $id)
+         ->count();
+        return view('jobs.single',compact('job', 'relatedJobs','relatedJobsCount','savedJob','appliedJob'));
 
     }
 

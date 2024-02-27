@@ -112,8 +112,12 @@
                     <input name="job_region" type="hidden" value="{{ $job->job_region }}">
                     <input name="job_type" type="hidden" value="{{ $job->job_type }}">
                     <input name="company" type="hidden" value="{{ $job->company }}">
+              @if($appliedJob > 0)
+              <button class="btn btn-block btn-primary btn-md bg-danger" disabled>You have already applied to this job!! </button>
+                    @else
+              <button type="submit" name="submit" class="btn btn-block btn-primary btn-md">Apply Now</button>
+               @endif
 
-                <button type="submit" name="submit" class="btn btn-block btn-primary btn-md">Apply Now</button>
                 </form>
               </div>
             </div>
