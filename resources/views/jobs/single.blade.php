@@ -18,7 +18,7 @@
       </div>
     </section>
 
-    
+
     <section class="site-section">
       <div class="container">
         <div class="row align-items-center mb-5">
@@ -37,14 +37,14 @@
               </div>
             </div>
           </div>
-    
+
         <div class="row">
           <div class="col-lg-8">
             <div class="mb-5">
               <figure class="mb-5"><img src="{{$job->image}}" width="500" height="500" alt="Image" class="img-fluid rounded"></figure>
               <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span>Job Description</h3>
               <p>{{$job->jobdescription}}</p>
-             
+
             </div>
             <div class="mb-5">
               <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-rocket mr-3"></span>Responsibilities</h3>
@@ -63,8 +63,19 @@
 
             <div class="row mb-5">
               <div class="col-6">
-                <button class="btn btn-block btn-light btn-md"><i class="icon-heart"></i>Save Job</button>
+                <form action="{{ route('save.job') }}" method="POST">
+                    @csrf
+                    <input name="job_id" type="text" value="{{ $job->id }}">
+                    <input name="user_id" type="text" value="{{ Auth::user()->id }}">
+                    <input name="job_image" type="text" value="{{ $job->image }}">
+                    <input name="job_title" type="text" value="{{ $job->job_title }}">
+                    <input name="job_region" type="text" value="{{ $job->job_region }}">
+                    <input name="job_type" type="text" value="{{ $job->job_type }}">
+                    <input name="company" type="text" value="{{ $job->company }}">
+
+                <button name="submit" type="submit" class="btn btn-block btn-light btn-md"><i class="icon-heart"></i>Save Job</button>
                 <!--add text-danger to it to make it read-->
+            </form>
               </div>
               <div class="col-6">
                 <button class="btn btn-block btn-primary btn-md">Apply Now</button>
@@ -109,7 +120,7 @@
             <h2 class="section-title mb-2"> {{ $relatedJobsCount }} Related Jobs</h2>
           </div>
         </div>
-        
+
         <ul class="job-listings mb-5">
 
           @foreach($relatedJobs as $job)
@@ -132,25 +143,25 @@
                 <span class="badge badge-danger">{{$job->job_type}}</span>
               </div>
             </div>
-            
+
           </li>
 
           @endforeach
-          
-          
+
+
         </ul>
 
-     
+
 
       </div>
     </section>
-    
+
 
    <!--  <section class="bg-light pt-5 testimony-full">
-        
+
         <div class="owl-carousel single-carousel">
 
-        
+
           <div class="container">
             <div class="row">
               <div class="col-lg-6 align-self-center text-center text-lg-left">

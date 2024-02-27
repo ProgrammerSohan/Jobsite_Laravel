@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Jobs\JobsController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +23,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/jobs/single/{id}',[JobsController::class, 'single'])->name('single.job');
-
+Route::post('/jobs/save',[JobsController::class, 'saveJob'])->name('save.job');
 
