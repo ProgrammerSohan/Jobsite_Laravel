@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Job\Application;
 use App\Models\Job\JobSaved;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Category;
 
 class JobsController extends Controller
 {
@@ -35,7 +36,11 @@ class JobsController extends Controller
          $appliedJob = Application::where('user_id',Auth::user()->id)
          ->where('job_id', $id)
          ->count();
-        return view('jobs.single',compact('job', 'relatedJobs','relatedJobsCount','savedJob','appliedJob'));
+
+         //categories
+         $categories = Category::all();
+
+        return view('jobs.single',compact('job', 'relatedJobs','relatedJobsCount','savedJob','appliedJob','categories'));
 
     }
 
