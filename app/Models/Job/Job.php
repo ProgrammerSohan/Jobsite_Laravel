@@ -32,7 +32,7 @@ class Job extends Model
 
     public function category()//category that owns the job.
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class,'category_id');
     }
 
 }
