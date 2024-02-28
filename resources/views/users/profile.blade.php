@@ -9,16 +9,21 @@
             <div class="card p-3 py-4">
 
                 <div class="text-center">
-                    <img src="{{ asset('assets/images/me1.jpg')}}" width="100" class="" alt="">
+                    <img src="{{ asset('assets/images_users/'.$profile->image.'')}}" width="100" class="" alt="">
                 </div>
 
                 <div class="text-center mt-3">
-                    <h5 class="mt-2 mb-0">Sohanur Rahman Sohan</h5>
-                    <span>Software Engineer</span>
+                    <h5 class="mt-2 mb-0">{{ $profile->name }}</h5>
+                    <span>{{ $profile->job_title}}</span>
+         <a href="{{ asset('assets/cvs/'.$profile->cv.'')}}" class="btn btn-success btn-block text-white" target="_blank">Download CV</a>           
                     <div class="px-4 mt-1">
-                        <p class="fonts">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam similique officia culpa exercitationem, saepe, maiores eum minus harum rerum quam ipsam et laudantium suscipit sint adipisci, eius repellat dolore quas?</p>
+                        <p class="fonts"> {{ $profile->bio}}</p>
                     </div>
-
+                    <div class="px-3">
+                        <a href="{{$profile->facebook}}" class="pt-3 pb-3 pr-3 pl-0 underline-none"><span class="icon-facebook"></span></a>
+                        <a href="{{$profile->twitter}}" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-twitter"></span></a>
+                        <a href="{{$profile->linkedin}}" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-linkedin"></span></a>
+                    </div>
 
 
                 </div>
