@@ -3,6 +3,7 @@
 use App\Http\Controllers\Categories\CategoriesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Jobs\JobsController;
+use App\Http\Controllers\Users\UsersController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -29,5 +30,6 @@ Route::post('/jobs/apply',[JobsController::class, 'jobApply'])->name('apply.job'
 
 Route ::get('/categories/single/{name}',[CategoriesController::class,'singleCategory'])->name('categories.single');
 
+Route::get('/users/profile',[UsersController::class,'profile'])->name('profile');
 
 //this is Sohan
