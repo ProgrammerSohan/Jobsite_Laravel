@@ -31,5 +31,6 @@ Route::post('/jobs/apply',[JobsController::class, 'jobApply'])->name('apply.job'
 Route ::get('/categories/single/{name}',[CategoriesController::class,'singleCategory'])->name('categories.single');
 
 Route::get('/users/profile',[UsersController::class,'profile'])->name('profile');
+Route::get('/users/applications',[UsersController::class,'applications'])->name('applications');
 
 //this is Sohan
