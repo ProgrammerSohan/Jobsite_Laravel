@@ -8,11 +8,11 @@
     <div class="container">
       <div class="row">
         <div class="col-md-7">
-          <h1 class="text-white font-weight-bold">Applications</h1>
+          <h1 class="text-white font-weight-bold">Saved Jobs</h1>
           <div class="custom-breadcrumbs">
             <a href="#">Home</a> <span class="mx-2 slash">/</span>
             <a href="#">Job</a> <span class="mx-2 slash">/</span>
-            <span class="text-white"><strong>Applications</strong></span>
+            <span class="text-white"><strong>Saved Jobs</strong></span>
           </div>
         </div>
       </div>
@@ -24,14 +24,14 @@
 
   <div class="row mb-5 justify-content-center">
     <div class="col-md-7 text-center">
-      <h2 class="section-title mb-2">Applications</h2>
+      <h2 class="section-title mb-2">Saved Jobs</h2>
     </div>
   </div>
 
   <ul class="job-listings mb-5">
-    @if($applications->count()> 0)
+    @if($savedJobs->count()> 0)
 
-    @foreach($applications as $job)
+    @foreach($savedJobs as $job)
 
           <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
             <p>{{$job->id}}</p>
@@ -61,7 +61,7 @@
     @else
         <div class="container">
             <div class="alert alert-success">
-                <h3 class="bg-warning">No Jobs Found !!!</h3>
+                <h3 class="bg-warning">No Jobs Found!!!</h3>
                 <p>This site is made by Programmer Sohan</p>
             </div>
 

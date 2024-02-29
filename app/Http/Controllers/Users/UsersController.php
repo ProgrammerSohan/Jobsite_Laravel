@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Job\Application;
+use App\Models\Job\JobSaved;
 
 class UsersController extends Controller
 {
@@ -22,5 +23,13 @@ class UsersController extends Controller
         ->get();
         return view('users.applications', compact('applications'));
      }
+
+     public function savedJobs(){
+        $savedJobs = JobSaved::where('user_id', '=',Auth::user()->id)
+        ->get();
+        return view('users.savedjobs', compact('savedJobs'));
+     }
+
+
 
 }

@@ -32,5 +32,6 @@ Route ::get('/categories/single/{name}',[CategoriesController::class,'singleCate
 
 Route::get('/users/profile',[UsersController::class,'profile'])->name('profile');
 Route::get('/users/applications',[UsersController::class,'applications'])->name('applications');
+Route::get('/users/savedjobs',[UsersController::class,'savedJobs'])->name('savedjobs');
 
 //this is Sohan
