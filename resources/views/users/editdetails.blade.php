@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-7">
-            <h1 class="text-white font-weight-bold">Update Details</h1>
+            <h1 class="text-white font-weight-bold">Update Details/Account Settings</h1>
             <div class="custom-breadcrumbs">
               <a href="#">Home</a> <span class="mx-2 slash">/</span>
               <a href="#">Job</a> <span class="mx-2 slash">/</span>
@@ -15,6 +15,14 @@
         </div>
       </div>
     </section>
+
+    <div class="container">
+        @if (\Session::has('update'))
+        <div class="alert alert-success">
+               <p>{!! \Session::get('update') !!}</p>
+        </div>
+        @endif
+     </div>
 
     <section class="site-section">
       <div class="container">
@@ -31,8 +39,8 @@
         </div>
         <div class="row mb-5">
           <div class="col-lg-12">
-            <form class="p-4 p-md-5 border rounded" action="post-job.php" method="post">
-            
+            <form class="p-4 p-md-5 border rounded" action="{{route('update.details')}}" method="post">
+             @csrf
               <!--job details-->
             
               <div class="form-group">
@@ -55,6 +63,21 @@
                   <textarea  name="bio" id="" cols="30" rows="7" class="form-control" placeholder="Bio">{{ $userDetails->bio}}</textarea>
                 </div>
               </div> 
+
+              <div class="form-group">
+                <label for="job-title">Twitter</label>
+                <input type="text" value="{{ $userDetails->twitter}}" name="twitter" class="form-control" id="job-title" placeholder="Twitter">
+              </div>
+
+              <div class="form-group">
+                <label for="job-title">Facebook</label>
+                <input type="text" value="{{ $userDetails->facebook}}" name="facebook" class="form-control" id="job-title" placeholder="Facebook">
+              </div>
+              <div class="form-group">
+                <label for="job-title">Linkedin</label>
+                <input type="text" value="{{ $userDetails->linkedin}}" name="linkedin" class="form-control" id="job-title" placeholder="Linkedin">
+              </div>
+
 
               <div class="col-lg-4 ml-auto">
                   <div class="row">  

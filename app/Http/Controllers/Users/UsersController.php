@@ -38,6 +38,27 @@ class UsersController extends Controller
       return view('users.editdetails', compact('userDetails'));
    }
 
+   public function updateDetails(Request $request){
+
+        $userDetailsUpdate = User::find(Auth::user()->id);
+         $userDetailsUpdate->update([
+            "name"     => $request->name,
+            "password" => $request->password,
+            "job_title"=> $request->job_title,
+             "bio"     => $request->bio,
+             "facebook"=> $request->facebook,
+             "twitter" => $request->twitter,
+             "linkedin"=> $request->linkedin,
+
+            ]);
+
+         if($userDetailsUpdate){
+            return redirect('/users/edit-details/')->with('update','User details updated successfully!');
+        }
+
+        return view('users.');
+   }
+
 
 
 }
