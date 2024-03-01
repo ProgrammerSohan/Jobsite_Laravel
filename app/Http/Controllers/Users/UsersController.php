@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Users;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
-use App\Models\Job\Application;
 use App\Models\Job\JobSaved;
+use Illuminate\Http\Request;
+use App\Models\Job\Application;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+//use Symfony\Component\HttpFoundation\File\File;
+use File;
 
 class UsersController extends Controller
 {
@@ -60,11 +62,33 @@ class UsersController extends Controller
    }
 
     public function editCV(){
-      
+
 
        return view('users.editcv');
     }
 
+    public function updateCV(Request $request){
+
+     $oldCV = User::find(Auth::user()->id);
+      //$file_path = public_path('assets/cvs/'.$OldCV);
+     // unlink($file_path);*/
+      if(File::exists(public_path('assets/cvs/' . $oldCV->cv))){
+          File::delete(public_path('assets/cvs/' . $oldCV->cv));
+      } else{
+         
+      }
+
+       $destinationPath = 'assets/cvs/';
+       $mycv = $request->cv->getClientOriginalName();
+       $request->cv->move(public_path($destinationPath), $mycv);
+
+       $oldCV->update([
+          "cv" => $mycv
+
+       ]);
+
+       return redirect('/users/profile')->with('update', 'CV Updated Successfully');
+    }
 
 
 }

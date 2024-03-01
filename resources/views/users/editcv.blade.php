@@ -16,14 +16,7 @@
       </div>
     </section>
 
-    <div class="container">
-        @if (\Session::has('update'))
-        <div class="alert alert-success">
-               <p>{!! \Session::get('update') !!}</p>
-        </div>
-        @endif
-     </div>
-
+   
     <section class="site-section">
       <div class="container">
 
