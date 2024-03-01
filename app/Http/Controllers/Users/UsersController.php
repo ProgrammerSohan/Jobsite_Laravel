@@ -56,8 +56,14 @@ class UsersController extends Controller
             return redirect('/users/edit-details/')->with('update','User details updated successfully!');
         }
 
-        return view('users.');
+      //  return view('users.');
    }
+
+    public function editCV(){
+      
+
+       return view('users.editcv');
+    }
 
 
 

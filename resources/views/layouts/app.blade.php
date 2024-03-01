@@ -65,11 +65,15 @@
                                     <a class="dropdown-item" href="{{ route('profile') }}">
                                      Profile
                                     </a>
+                                   
                                     <a class="dropdown-item" href="{{ route('applications') }}">
                                         Applications
                                        </a>
                                        <a class="dropdown-item" href="{{ route('savedjobs') }}">
                                        Saved Jobs
+                                       </a>
+                                       <a class="dropdown-item" href="{{ route('edit.cv') }}">
+                                       Update CV
                                        </a>
                                        <a class="dropdown-item" href="{{ route('edit.details') }}">
                                        Account Settings

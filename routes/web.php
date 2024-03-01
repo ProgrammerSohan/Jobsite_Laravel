@@ -37,5 +37,7 @@ Route::get('/users/savedjobs',[UsersController::class,'savedJobs'])->name('saved
 Route::get('/users/edit-details',[UsersController::class,'editDetails'])->name('edit.details');
 Route::post('/users/edit-details',[UsersController::class,'updateDetails'])->name('update.details');
 
+Route::get('/users/edit-cv',[UsersController::class,'editCV'])->name('edit.cv');
+Route::post('/users/edit-cv',[UsersController::class,'updateCV'])->name('update.cv');
 
 //this is Sohan
