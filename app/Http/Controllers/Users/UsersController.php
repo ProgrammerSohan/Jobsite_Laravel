@@ -31,8 +31,8 @@ class UsersController extends Controller
      }
 
      public function editDetails(){
-      $userDetails = User::where('id','=', Auth::user()->id)
-      ->get();
+      //$userDetails = User::where('id','=', Auth::user()->id)  ->get();
+      $userDetails = User::find(Auth::user()->id);
 
 
       return view('users.editdetails', compact('userDetails'));
