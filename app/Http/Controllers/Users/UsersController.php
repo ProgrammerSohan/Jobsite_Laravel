@@ -30,6 +30,14 @@ class UsersController extends Controller
         return view('users.savedjobs', compact('savedJobs'));
      }
 
+     public function editDetails(){
+      $userDetails = User::where('id','=', Auth::user()->id)
+      ->get();
+
+
+      return view('users.editdetails', compact('userDetails'));
+   }
+
 
 
 }

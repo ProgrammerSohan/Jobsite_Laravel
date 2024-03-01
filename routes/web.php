@@ -34,4 +34,8 @@ Route::get('/users/profile',[UsersController::class,'profile'])->name('profile')
 Route::get('/users/applications',[UsersController::class,'applications'])->name('applications');
 Route::get('/users/savedjobs',[UsersController::class,'savedJobs'])->name('savedjobs');
 
+Route::get('/users/edit-details',[UsersController::class,'editDetails'])->name('edit.details');
+
+
+
 //this is Sohan
