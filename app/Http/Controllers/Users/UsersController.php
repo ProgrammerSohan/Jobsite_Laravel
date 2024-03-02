@@ -42,6 +42,17 @@ class UsersController extends Controller
 
    public function updateDetails(Request $request){
 
+        Request()->validate([
+             "name" => "required|max:40",
+             "password" => "required|min:8",
+             "job_title" => "required",
+             "bio" => "required",
+             "facebook" => "required|max:140",
+             "twitter" => "required|max:140",
+             "linkedin" => "required|max:140",
+
+        ]);
+
         $userDetailsUpdate = User::find(Auth::user()->id);
          $userDetailsUpdate->update([
             "name"     => $request->name,
@@ -75,7 +86,7 @@ class UsersController extends Controller
       if(File::exists(public_path('assets/cvs/' . $oldCV->cv))){
           File::delete(public_path('assets/cvs/' . $oldCV->cv));
       } else{
-         
+
       }
 
        $destinationPath = 'assets/cvs/';
