@@ -24,20 +24,27 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/jobs/single/{id}',[JobsController::class, 'single'])->name('single.job');
-Route::post('/jobs/save',[JobsController::class, 'saveJob'])->name('save.job');
-Route::post('/jobs/apply',[JobsController::class, 'jobApply'])->name('apply.job');
+Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
+Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
 
-Route ::get('/categories/single/{name}',[CategoriesController::class,'singleCategory'])->name('categories.single');
+Route::group(['prefix'=> 'jobs'], function(){
+    Route::get('single/{id}',[JobsController::class, 'single'])->name('single.job');
+    Route::post('save',[JobsController::class, 'saveJob'])->name('save.job');
+    Route::post('apply',[JobsController::class, 'jobApply'])->name('apply.job');
+});
 
-Route::get('/users/profile',[UsersController::class,'profile'])->name('profile');
-Route::get('/users/applications',[UsersController::class,'applications'])->name('applications');
-Route::get('/users/savedjobs',[UsersController::class,'savedJobs'])->name('savedjobs');
 
-Route::get('/users/edit-details',[UsersController::class,'editDetails'])->name('edit.details');
-Route::post('/users/edit-details',[UsersController::class,'updateDetails'])->name('update.details');
+Route::group(['prefix' => 'categories'], function(){
+    Route ::get('/single/{name}',[CategoriesController::class,'singleCategory'])->name('categories.single');
+});
 
-Route::get('/users/edit-cv',[UsersController::class,'editCV'])->name('edit.cv');
-Route::post('/users/edit-cv',[UsersController::class,'updateCV'])->name('update.cv');
-
+Route::group(['prefix'=>'users'], function(){
+Route::get('profile',[UsersController::class,'profile'])->name('profile');
+Route::get('applications',[UsersController::class,'applications'])->name('applications');
+Route::get('savedjobs',[UsersController::class,'savedJobs'])->name('savedjobs');
+Route::get('edit-details',[UsersController::class,'editDetails'])->name('edit.details');
+Route::post('edit-details',[UsersController::class,'updateDetails'])->name('update.details');
+Route::get('edit-cv',[UsersController::class,'editCV'])->name('edit.cv');
+Route::post('edit-cv',[UsersController::class,'updateCV'])->name('update.cv');
+});
 //this is Sohan
