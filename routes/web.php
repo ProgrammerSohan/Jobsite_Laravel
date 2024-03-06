@@ -31,6 +31,7 @@ Route::group(['prefix'=> 'jobs'], function(){
     Route::get('single/{id}',[JobsController::class, 'single'])->name('single.job');
     Route::post('save',[JobsController::class, 'saveJob'])->name('save.job');
     Route::post('apply',[JobsController::class, 'jobApply'])->name('apply.job');
+    Route::any('search',[JobsController::class, 'search'])->name('search.job');
 });
 
 
