@@ -94,7 +94,7 @@ class JobsController extends Controller
         $job_region = $request->get('job_region');
         $job_type = $request->get('job_type');
 
-        $searches = Job::select()->where('job_title', 'like', '%$job_title%')
+        $searches = Job::select()->where('job_title', 'like', "%$job_title%")
         ->where('job_region','like','%$job_region%')
         ->where('job_type', 'like', '%$job_type%')
         ->get();

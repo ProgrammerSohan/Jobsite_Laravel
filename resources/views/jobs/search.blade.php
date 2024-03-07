@@ -3,15 +3,15 @@
 @section('content')
 
  <!-- HOME -->
- <section class="section-hero overlay inner-page bg-image" style="background-image: url('{{ $job->image}}'); margin-top:-24px;" id="home-section">
+ <section class="section-hero overlay inner-page bg-image" style="background-image: url(''); margin-top:-24px;" id="home-section">
       <div class="container">
         <div class="row">
           <div class="col-md-7">
-            <h1 class="text-white font-weight-bold">{{ $job->job_title}}</h1>
+            <h1 class="text-white font-weight-bold">Search Results</h1>
             <div class="custom-breadcrumbs">
               <a href="#">Home</a> <span class="mx-2 slash">/</span>
               <a href="#">Job</a> <span class="mx-2 slash">/</span>
-              <span class="text-white"><strong>{{ $job->job_title}}</strong></span>
+              <span class="text-white"><strong>Search Results</strong></span>
             </div>
           </div>
         </div>
@@ -23,14 +23,14 @@
 
           <div class="row mb-5 justify-content-center">
             <div class="col-md-7 text-center">
-              <h2 class="section-title mb-2">{{ $name }}</h2>
+              <h2 class="section-title mb-2">Search Results</h2>
             </div>
           </div>
 
           <ul class="job-listings mb-5">
-            @if($jobs->count()> 0)
+            @if($searches->count()> 0)
 
-            @foreach($jobs as $job)
+            @foreach($searches as $job)
 
                   <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
                     <p>{{$job->id}}</p>
@@ -60,7 +60,7 @@
             @else
                 <div class="container">
                     <div class="alert alert-success">
-                        <h3 class="bg-warning">No Jobs Found In This Category!!!</h3>
+                        <h3 class="bg-warning">No Jobs Found with this search!!!</h3>
                         <p>This site is made by Programmer Sohan</p>
                     </div>
 
@@ -79,4 +79,4 @@
         </section>
 
 
-@endforeach
+@endsection
