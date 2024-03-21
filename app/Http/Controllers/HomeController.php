@@ -13,10 +13,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+   /* public function __construct()
     {
         $this->middleware('auth');
-    }
+    }*/
 
     /**
      * Show the application dashboard.
@@ -43,7 +43,7 @@ class HomeController extends Controller
         $wehave = Job::orderBy('id','desc')->paginate(8);
         $carousel = Job::select()->take(50)->orderBy('id', 'desc')->get();
 
-        return view('home', compact('jobs','totalJobs','wehave','carousel','duplicates','serializedDuplicates'));
+        return view('home', compact('jobs','totalJobs','wehave','carousel','duplicates'));
     }
 
     public function about()

@@ -86,6 +86,7 @@
 
             <div class="row mb-5">
               <div class="col-6">
+                @if(isset(Auth::user()->id))
                 <form action="{{ route('save.job') }}" method="POST">
                     @csrf
                     <input name="job_id" type="hidden" value="{{ $job->id }}">
@@ -102,6 +103,7 @@
                     @endif
                 <!--add text-danger to it to make it read-->
             </form>
+            @endif
               </div>
               <div class="col-6">
                 <form action="{{ route('apply.job') }}" method="POST">
@@ -112,10 +114,14 @@
                     <input name="job_region" type="hidden" value="{{ $job->job_region }}">
                     <input name="job_type" type="hidden" value="{{ $job->job_type }}">
                     <input name="company" type="hidden" value="{{ $job->company }}">
-              @if($appliedJob > 0)
-              <button class="btn btn-block btn-primary btn-md bg-danger" disabled>You have already applied to this job!! </button>
-                    @else
-              <button type="submit" name="submit" class="btn btn-block btn-primary btn-md">Apply Now</button>
+                    @if(isset(Auth::user()->id))
+
+                        @if($appliedJob > 0)
+                        <button class="btn btn-block btn-primary btn-md bg-danger" disabled>You have already applied to this job!! </button>
+                                @else
+                        <button type="submit" name="submit" class="btn btn-block btn-primary btn-md">Apply Now</button>
+                        @endif
+
                @endif
 
                 </form>
