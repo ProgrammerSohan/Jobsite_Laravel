@@ -122,8 +122,9 @@
                         <button type="submit" name="submit" class="btn btn-block btn-primary btn-md">Apply Now</button>
                         @endif
 
-               @endif
-
+               @else
+               <a href="{{ route('login') }}" class="btn btn-block btn-primary btn-md" disabled>Login to apply for this job! </a>
+                @endif
                 </form>
               </div>
             </div>
