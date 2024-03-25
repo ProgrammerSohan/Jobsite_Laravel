@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Jobs\JobsController;
 use App\Http\Controllers\Users\UsersController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Admins\AdminsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,3 +51,5 @@ Route::get('edit-cv',[UsersController::class,'editCV'])->name('edit.cv');
 Route::post('edit-cv',[UsersController::class,'updateCV'])->name('update.cv');
 });
 //this is Sohan
+Route::get('admin/login', [AdminsController::class, 'viewLogin'])->name('view.login');
+
