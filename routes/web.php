@@ -53,4 +53,5 @@ Route::post('edit-cv',[UsersController::class,'updateCV'])->name('update.cv');
 //this is Sohan
 Route::get('admin/login', [AdminsController::class, 'viewLogin'])->name('view.login');
 Route::post('admin/login', [AdminsController::class, 'checkLogin'])->name('check.login');
+Route::get('admin', [AdminsController::class, 'index'])->name('admins.dashboard');
 

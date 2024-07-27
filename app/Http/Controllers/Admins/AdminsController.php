@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admins;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Admin\Admin;
 class AdminsController extends Controller
 {
 
@@ -21,8 +21,11 @@ class AdminsController extends Controller
             return redirect() -> route('admins.dashboard');
         }
         return redirect()->back()->with(['error' => 'error logging in']);
+      }//end method
 
+      public function index(){
 
+        return view("admins.index");
 
       }//end method
 
