@@ -22,6 +22,7 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarText">
+        @auth('admin')
         <ul class="navbar-nav side-nav" >
           <li class="nav-item">
             <a class="nav-link text-white" style="margin-left: 20px;" href="index.html">Home
@@ -41,26 +42,31 @@
             <a class="nav-link" href="applications-admins/show-apps.html" style="margin-left: 20px;">Applications</a>
           </li>
         </ul>
+        @endauth
         <ul class="navbar-nav ml-md-auto d-md-flex">
+          @auth('admin')
           <li class="nav-item">
             <a class="nav-link" href="index.html">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="admins/login-admins.html">login
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
+         
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              username
+              {{ Auth::guard('admin')->user()->email }}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">Logout</a>
 
           </li>
+          @else
 
+          <li class="nav-item">
+            <a class="nav-link" href="admins/login-admins.html">login
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          @endauth
 
         </ul>
       </div>
