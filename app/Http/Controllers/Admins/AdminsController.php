@@ -8,6 +8,7 @@ use App\Models\Admin\Admin;
 use Illuminate\Http\Request;
 use App\Models\Job\Application;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class AdminsController extends Controller
 {
@@ -45,8 +46,24 @@ class AdminsController extends Controller
       }//end method
 
       public function createAdmins(){
-
+        
         return view("admins.create-admins");
+
+      }//end method
+
+      public function storeAdmins(Request $request){
+
+              $createAdmins= Admin::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+              ]);
+
+             // return view("admins.create-admins");
+             if($createAdmins){
+              return redirect('admin/all-admins/')->with('create', 'Admin created successfully!!');
+
+             }
 
       }//end method
 
