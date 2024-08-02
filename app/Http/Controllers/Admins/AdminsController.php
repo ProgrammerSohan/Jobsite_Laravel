@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Admins;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Job\Job;
+use App\Models\Category;
 use App\Models\Admin\Admin;
+use Illuminate\Http\Request;
+use App\Models\Job\Application;
+use App\Http\Controllers\Controller;
+
 class AdminsController extends Controller
 {
 
@@ -25,7 +29,12 @@ class AdminsController extends Controller
 
       public function index(){
 
-        return view("admins.index");
+        $jobs = Job::select()->count();
+        $categories = Category::select()->count();
+        $admins = Admin::select()->count();
+        $applications = Application::select()->count();
+
+        return view("admins.index", compact('jobs','categories','admins','applications'));
 
       }//end method
 
