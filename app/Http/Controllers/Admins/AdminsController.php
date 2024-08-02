@@ -44,6 +44,10 @@ class AdminsController extends Controller
 
       }//end method
 
+      public function createAdmins(){
 
+        return view("admins.create-admins");
+
+      }//end method
 
 }
