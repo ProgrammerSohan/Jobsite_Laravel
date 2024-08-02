@@ -29,4 +29,12 @@ class AdminsController extends Controller
 
       }//end method
 
+      public function admins(){
+        $admins = Admin::all();
+        return view("admins.all-admins", compact('admins'));
+
+      }//end method
+
+
+
 }
