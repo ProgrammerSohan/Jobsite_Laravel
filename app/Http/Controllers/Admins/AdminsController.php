@@ -73,4 +73,13 @@ class AdminsController extends Controller
 
       }//end method
 
+      public function displayCategories(){
+
+          $categories = Category::all();
+
+          return view("admins.display-categories", compact('categories'));
+      }//end method
+
+
+
 }

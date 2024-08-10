@@ -60,4 +60,8 @@ Route::get('/all-admins', [AdminsController::class, 'admins'])->name('view.admin
 Route::get('/create-admins', [AdminsController::class, 'createAdmins'])->name('create.admins');
 Route::post('/create-admins', [AdminsController::class, 'storeAdmins'])->name('store.admins');
 
+//category
+Route::get('/display-categories', [AdminsController::class, 'displayCategories'])->name('display.categories');
+
+
 });
