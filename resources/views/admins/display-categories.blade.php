@@ -1,4 +1,7 @@
 
+@extends('layouts.admin')
+
+@section('content')
 
 <div class="row">
         <div class="col">
@@ -16,27 +19,20 @@
                   </tr>
                 </thead>
                 <tbody>
+                    @foreach ($categories as $category)
+                                        
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
+                    <th scope="row">{{ $category->id }}</th>
+                    <td>{{ $category->name }}</td>
                     <td><a  href="#" class="btn btn-warning text-white text-center ">Update </a></td>
                     <td><a href="#" class="btn btn-danger  text-center ">Delete </a></td>
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td><a  href="#" class="btn btn-warning text-white text-center">Update </a></td>
-                    <td><a href="#" class="btn btn-danger  text-center ">Delete </a></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                     <td><a  href="#" class="btn btn-warning text-white text-center ">Update </a></td>
-                    <td><a href="#" class="btn btn-danger text-center">Delete </a></td>
-                  </tr>
+                  @endforeach
                 </tbody>
               </table> 
             </div>
           </div>
         </div>
       </div>
+
+@endsection
