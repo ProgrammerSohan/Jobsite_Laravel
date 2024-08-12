@@ -108,6 +108,23 @@ class AdminsController extends Controller
 
       }//end method
 
+      public function updateCategories(Request $request,$id){
+
+        Request()->validate([
+          "name" => "required|max:40",
+
+        ]);
+
+        $categoryUpdate = Category::find($id);
+        $categoryUpdate->update([
+           "name" => $request->name,
+        ]);
+
+        if($categoryUpdate){
+          return redirect('/admin/display-categories/')->with('update','Category updated successfully');
+        }
+
+      }//end method
 
 
 }
