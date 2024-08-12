@@ -62,6 +62,8 @@ Route::post('/create-admins', [AdminsController::class, 'storeAdmins'])->name('s
 
 //category
 Route::get('/display-categories', [AdminsController::class, 'displayCategories'])->name('display.categories');
+Route::get('/create-cates', [AdminsController::class, 'createCategories'])->name('create.categories');
+Route::post('/create-cates', [AdminsController::class, 'storeCategories'])->name('store.categories');
 
 
 });

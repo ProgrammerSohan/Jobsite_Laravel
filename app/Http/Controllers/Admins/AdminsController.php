@@ -80,6 +80,12 @@ class AdminsController extends Controller
           return view("admins.display-categories", compact('categories'));
       }//end method
 
+      public function createCategories(){
+
+          return view("admins.create-categories");
+
+      }
+
 
 
 }
