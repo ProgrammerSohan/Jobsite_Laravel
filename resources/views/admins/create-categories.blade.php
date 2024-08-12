@@ -7,12 +7,15 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title mb-5 d-inline">Create Categories</h5>
-          <form method="POST" action="" enctype="multipart/form-data">
+          <form method="POST" action="{{route('store.categories')}}" enctype="multipart/form-data">
+             @csrf
                 <!-- Email input -->
                 <div class="form-outline mb-4 mt-4">
                   <input type="text" name="name" id="form2Example1" class="form-control" placeholder="name" />
-                 
-                </div>
+                   </div>
+                   @if ($errors->has('name'))
+                        <p class="alert alert-success">{{ $errors->first('name')}}</p>
+                   @endif
 
       
                 <!-- Submit button -->

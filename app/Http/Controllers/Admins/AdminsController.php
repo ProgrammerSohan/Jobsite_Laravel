@@ -84,7 +84,26 @@ class AdminsController extends Controller
 
           return view("admins.create-categories");
 
-      }
+      }//end method
+
+      public function storeCategories(Request $request){
+
+          Request()->validate([
+             "name"=> "required|max:40",
+          ]);
+
+          $createCategory = Category::create([
+             'name' => $request->name,
+          ]);
+          if($createCategory){
+            return redirect('admin/display-categories')->with('create','Category created successfully!');
+
+          }
+
+
+      }//end method
+
+
 
 
 
