@@ -29,7 +29,7 @@
                   <tr>
                     <th scope="row">{{ $category->id }}</th>
                     <td>{{ $category->name }}</td>
-                    <td><a  href="#" class="btn btn-warning text-white text-center ">Update </a></td>
+                    <td><a  href="{{ route('edit.categories', $category->id)}}" class="btn btn-warning text-white text-center ">Update </a></td>
                     <td><a href="#" class="btn btn-danger  text-center ">Delete </a></td>
                   </tr>
                   @endforeach

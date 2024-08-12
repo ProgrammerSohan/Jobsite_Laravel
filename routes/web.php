@@ -65,5 +65,8 @@ Route::get('/display-categories', [AdminsController::class, 'displayCategories']
 Route::get('/create-cates', [AdminsController::class, 'createCategories'])->name('create.categories');
 Route::post('/create-cates', [AdminsController::class, 'storeCategories'])->name('store.categories');
 
+//update cates
+Route::get('/edit-cates/{id}', [AdminsController::class, 'editCategories'])->name('edit.categories');
+Route::post('/edit-cates/{id}', [AdminsController::class, 'updateCategories'])->name('update.categories');
 
 });

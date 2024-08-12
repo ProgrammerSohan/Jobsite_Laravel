@@ -99,11 +99,14 @@ class AdminsController extends Controller
             return redirect('admin/display-categories')->with('create','Category created successfully!');
 
           }
-
-
       }//end method
 
+      public function editCategories($id){
 
+        $category = Category::find($id);
+        return view("admins.edit-categories",compact('category'));
+
+      }//end method
 
 
 
