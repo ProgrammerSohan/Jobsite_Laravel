@@ -147,5 +147,10 @@ class AdminsController extends Controller
 
       }//end method
 
+      public function createJobs(){
+
+          return view('admins.create-jobs');
+      }//end method
+
 
 }
