@@ -138,5 +138,14 @@ class AdminsController extends Controller
 
       }//end method
 
+      //jobs
+      public function allJobs(){
+
+          $jobs = Job::all();
+
+          return view('admins.all-jobs', compact('jobs'));
+
+      }//end method
+
 
 }

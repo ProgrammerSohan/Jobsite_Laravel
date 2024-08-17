@@ -70,4 +70,9 @@ Route::get('/edit-cates/{id}', [AdminsController::class, 'editCategories'])->nam
 Route::post('/edit-cates/{id}', [AdminsController::class, 'updateCategories'])->name('update.categories');
 Route::get('/delete-cates/{id}', [AdminsController::class, 'deleteCategories'])->name('delete.categories');
 
+//jobs
+Route::get('/display-jobs', [AdminsController::class, 'allJobs'])->name('display.jobs');
+
+
+
 });
