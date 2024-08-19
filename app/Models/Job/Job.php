@@ -25,9 +25,11 @@ class Job extends Model
         'responsibilities',
         'education_experience',
         'otherbenifits',
+       // 'category',
+        'category_id',
         'image',
-        'category_id'
-
+       
+       
     ];
 
     public function category()//category that owns the job.

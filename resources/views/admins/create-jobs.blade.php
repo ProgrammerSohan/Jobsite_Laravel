@@ -9,8 +9,8 @@
             <div class="card-body">
               <h5 class="card-title mb-4 d-inline">Create Jobs</h5>
             
-              <form class="p-4 p-md-5" action="post-job.php" method="post">
-            
+              <form class="p-4 p-md-5" action="{{ route('store.jobs') }}" method="post" enctype="multipart/form-data">
+                @csrf
                 <!--job details-->
               
                 <div class="form-group">
@@ -22,15 +22,15 @@
                 <div class="form-group">
                   <label for="job-region">Job Region</label>
                   <select name="job_region" class="form-select form-control" id="job-region" data-style="btn-black" data-width="100%" data-live-search="true" title="Select Region">
-                        <option>Anywhere</option>
-                        <option>San Francisco</option>
-                        <option>Palo Alto</option>
-                        <option>New York</option>
-                        <option>Manhattan</option>
-                        <option>Ontario</option>
-                        <option>Toronto</option>
-                        <option>Kansas</option>
-                        <option>Mountain View</option>
+                        <option value="Anywhere">Anywhere</option>
+                        <option value="San Francisco">San Francisco</option>
+                        <option value="Palo Alto">Palo Alto</option>
+                        <option value="New York">New York</option>
+                        <option value="Manhattan">Manhattan</option>
+                        <option value="Ontario">Ontario</option>
+                        <option value="Toronto">Toronto</option>
+                        <option value="Kansas">Kansas</option>
+                        <option value="Mountain View">Mountain View</option>
                       </select>
                 </div>
                 <div class="form-group">
@@ -41,8 +41,8 @@
                 <div class="form-group">
                   <label for="job-type">Job Type</label>
                   <select name="job_type" class="selectpicker border rounded form-control" id="job-type" data-style="btn-black" data-width="100%" data-live-search="true" title="Select Job Type">
-                    <option>Part Time</option>
-                    <option>Full Time</option>
+                    <option value="Part Time">Part Time</option>
+                    <option value="Full Time">Full Time</option>
                   </select>
                 </div>
                 <div class="form-group">
@@ -52,26 +52,26 @@
                 <div class="form-group">
                   <label for="job-type">Experience</label>
                   <select name="experience" class="selectpicker border rounded form-control" id="job-type" data-style="btn-black" data-width="100%" data-live-search="true" title="Select Years of Experience">
-                    <option>1-3 years</option>
-                    <option>3-6 years</option>
-                    <option>6-9 years</option>
+                    <option value="1-3 years">1-3 years</option>
+                    <option value="3-6 years">3-6 years</option>
+                    <option value="6-9 years">6-9 years</option>
                   </select>
                 </div>
                 <div class="form-group">
                   <label for="job-type">Salary</label>
                   <select name="salary" class="selectpicker border rounded form-control" id="job-type" data-style="btn-black" data-width="100%" data-live-search="true" title="Select Salary">
-                    <option>$50k - $70k</option>
-                    <option>$70k - $100k</option>
-                    <option>$100k - $150k</option>
+                    <option value="$50k - $70k">$50k - $70k</option>
+                    <option value="$70k - $100k">$70k - $100k</option>
+                    <option value="$100k - $150k">$100k - $150k</option>
                   </select>
                 </div>
   
                 <div class="form-group">
                   <label for="job-type">Gender</label>
                   <select name="gender" class="selectpicker border rounded form-control " id="" data-style="btn-black" data-width="100%" data-live-search="true" title="Select Gender">
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Any</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Any">Any</option>
                   </select>
                 </div>
   
@@ -83,7 +83,7 @@
                 <div class="row form-group">
                   <div class="col-md-12">
                     <label class="text-black" for="">Job Description</label> 
-                    <textarea name="job_description" id="" cols="30" rows="7" class="form-control" placeholder="Write Job Description..."></textarea>
+                    <textarea name="jobdescription" id="" cols="30" rows="7" class="form-control" placeholder="Write Job Description..."></textarea>
                   </div>
                 </div>
   
@@ -104,7 +104,7 @@
                 <div class="row form-group">
                   <div class="col-md-12">
                     <label class="text-black" for="">Other Benifits</label> 
-                    <textarea name="other_benifits" id="" cols="30" rows="7" class="form-control" placeholder="Write Other Benifits..."></textarea>
+                    <textarea name="otherbenifits" id="" cols="30" rows="7" class="form-control" placeholder="Write Other Benifits..."></textarea>
                   </div>
                 </div>
              
@@ -112,10 +112,13 @@
   
   
                 <div class="form-group">
-                    <label for="job-type">Categroy</label>
-                    <select name="categroy" class="selectpicker border rounded form-control " id="" data-style="btn-black" data-width="100%" data-live-search="true" title="Select Gender">
-                      <option>Programming</option>
-                      <option>Design</option>
+                    <label for="category_id">Categroy</label>
+                    <select name="categroy_id" class="selectpicker border rounded form-control " id="category_id" data-style="btn-black" data-width="100%" data-live-search="true" title="Select Gender">
+                        @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                      
+                     
                     </select>
                 </div>
                 <div class="form-group">

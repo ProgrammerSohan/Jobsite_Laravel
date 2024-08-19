@@ -6,6 +6,13 @@
         <div class="col">
           <div class="card">
             <div class="card-body">
+              @if (\Session::has('create'))
+                  <div class="alert alert-success">
+                    <p>{!! \Session::get('create') !!}</p>
+
+                </div>
+              @endif
+
               <h5 class="card-title mb-4 d-inline">Jobs</h5>
               <a  href="{{ route('create.jobs')}}" class="btn btn-primary mb-4 text-center float-right">Create Jobs</a>
 
@@ -26,9 +33,10 @@
                   <tr>
                     <th scope="row">{{ $job->id }}</th>
                     <td>{{ $job->job_title}}</td>
-                    <td>{{ $job->category ? $job->category->name : 'No Category' }}</td>
-                   {{-- <!-- <td>{{ $job->category->name }}</td> -->
-                    <!-- <td>{{ $job->category ? $job->category->name : 'No Category' }}</td> -->--}}
+                    {{--<td>{{ $job->category}}</td> --}}
+                   {{-- <td>{{ $job->category ? $job->category->name : 'No Category' }}</td>--}}
+                   {{-- <!-- <td>{{ $job->category->name }}</td> -->--}}
+                  <td>{{ $job->category ? $job->category->name : 'No Category' }}</td> 
                    {{-- <td>{{ optional($job->category)->name ?? 'No Category' }}</td>--}}
                     <td>{{ $job->company }}</td>
                     <td>{{ $job->job_region }}</td>

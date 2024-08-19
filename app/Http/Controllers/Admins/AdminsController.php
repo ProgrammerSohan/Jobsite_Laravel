@@ -149,7 +149,44 @@ class AdminsController extends Controller
 
       public function createJobs(){
 
-          return view('admins.create-jobs');
+        $categories = Category::all();
+
+          return view('admins.create-jobs', compact('categories'));
+      }//end method
+
+      public function storeJobs(Request $request){
+
+              
+        $destinationPath = 'assets/images/';
+        $myimage = $request->image->getClientOriginalName();
+        $request->image->move(public_path($destinationPath), $myimage);
+
+        $createJobs = Job::create([
+            'job_title' => $request->job_title,
+            'job_region' => $request->job_region,
+            'company'   => $request->company,
+            'job_type'  => $request->job_type,
+            'vacancy'   => $request->vacancy,
+            'experience' => $request->experience,
+            'salary'    => $request-> salary,
+            'gender' => $request->gender,
+            'application_deadline' => $request->application_deadline,
+            'jobdescription' => $request->jobdescription,
+            'responsibilities' => $request->responsibilities,
+            'education_experience' => $request->education_experience,
+            'otherbenifits' => $request->otherbenifits,
+           // 'category' => $request->category,
+            'category_id' => $request->category_id,
+            'image' => $myimage,
+
+        ]);
+
+        if($createJobs){
+
+          return redirect('admin/display-jobs/')->with('create','Job created successfully');
+        }
+
+
       }//end method
 
 
