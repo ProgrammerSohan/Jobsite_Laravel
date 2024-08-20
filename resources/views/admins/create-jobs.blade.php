@@ -17,7 +17,10 @@
                   <label for="job-title">Job Title</label>
                   <input type="text" name="job_title" class="form-control" id="job-title" placeholder="Product Designer">
                 </div>
-              
+
+                @if ($errors->has('job_title'))
+                    <p class="alert alert-danger">{{ $errors->first('job_title') }}</p>
+                @endif
   
                 <div class="form-group">
                   <label for="job-region">Job Region</label>
@@ -33,10 +36,17 @@
                         <option value="Mountain View">Mountain View</option>
                       </select>
                 </div>
+                @if ($errors->has('job_region'))
+                    <p class="alert alert-danger">{{ $errors->first('job_region') }}</p>
+                @endif
                 <div class="form-group">
                     <label for="job-title">Company</label>
                     <input type="text" name="company" class="form-control" id="job-title" placeholder="company">
                 </div>
+
+                @if ($errors->has('company'))
+                    <p class="alert alert-danger">{{ $errors->first('company') }}</p>
+                @endif
   
                 <div class="form-group">
                   <label for="job-type">Job Type</label>
@@ -45,10 +55,17 @@
                     <option value="Full Time">Full Time</option>
                   </select>
                 </div>
+                @if ($errors->has('job_type'))
+                    <p class="alert alert-danger">{{ $errors->first('job_type') }}</p>
+                @endif
+
                 <div class="form-group">
                   <label for="job-location">Vacancy</label>
                   <input name="vacancy" type="text" class="form-control" id="job-location" placeholder="e.g. 3">
                 </div>
+                @if ($errors->has('vacancy'))
+                    <p class="alert alert-danger">{{ $errors->first('vacancy') }}</p>
+                @endif
                 <div class="form-group">
                   <label for="job-type">Experience</label>
                   <select name="experience" class="selectpicker border rounded form-control" id="job-type" data-style="btn-black" data-width="100%" data-live-search="true" title="Select Years of Experience">
@@ -57,6 +74,10 @@
                     <option value="6-9 years">6-9 years</option>
                   </select>
                 </div>
+                @if ($errors->has('experience'))
+                    <p class="alert alert-danger">{{ $errors->first('experience') }}</p>
+                @endif
+
                 <div class="form-group">
                   <label for="job-type">Salary</label>
                   <select name="salary" class="selectpicker border rounded form-control" id="job-type" data-style="btn-black" data-width="100%" data-live-search="true" title="Select Salary">
@@ -65,6 +86,9 @@
                     <option value="$100k - $150k">$100k - $150k</option>
                   </select>
                 </div>
+                @if ($errors->has('salary'))
+                    <p class="alert alert-danger">{{ $errors->first('salary') }}</p>
+                @endif
   
                 <div class="form-group">
                   <label for="job-type">Gender</label>
@@ -74,18 +98,28 @@
                     <option value="Any">Any</option>
                   </select>
                 </div>
+
+                @if ($errors->has('gender'))
+                    <p class="alert alert-danger">{{ $errors->first('gender') }}</p>
+                @endif
   
                 <div class="form-group">
                   <label for="job-location">Application Deadline</label>
                   <input name="application_deadline" type="text" class="form-control" id="" placeholder="e.g. 20-12-2022">
                 </div>
-  
+                @if ($errors->has('application_deadline'))
+                    <p class="alert alert-danger">{{ $errors->first('application_deadline') }}</p>
+                @endif
+
                 <div class="row form-group">
                   <div class="col-md-12">
                     <label class="text-black" for="">Job Description</label> 
                     <textarea name="jobdescription" id="" cols="30" rows="7" class="form-control" placeholder="Write Job Description..."></textarea>
                   </div>
                 </div>
+                @if ($errors->has('jobdescription'))
+                    <p class="alert alert-danger">{{ $errors->first('jobdescription') }}</p>
+                @endif
   
                 <div class="row form-group">
                   <div class="col-md-12">
@@ -93,6 +127,9 @@
                     <textarea name="responsibilities" id="" cols="30" rows="7" class="form-control" placeholder="Write Responsibilities..."></textarea>
                   </div>
                 </div>
+                @if ($errors->has('responsibilities'))
+                    <p class="alert alert-danger">{{ $errors->first('responsibilities') }}</p>
+                @endif
   
                 <div class="row form-group">
                   <div class="col-md-12">
@@ -100,6 +137,9 @@
                     <textarea name="education_experience" id="" cols="30" rows="7" class="form-control" placeholder="Write Education & Experience..."></textarea>
                   </div>
                 </div>
+                @if ($errors->has('education_experience'))
+                    <p class="alert alert-danger">{{ $errors->first('education_experience') }}</p>
+                @endif
   
                 <div class="row form-group">
                   <div class="col-md-12">
@@ -107,13 +147,15 @@
                     <textarea name="otherbenifits" id="" cols="30" rows="7" class="form-control" placeholder="Write Other Benifits..."></textarea>
                   </div>
                 </div>
-             
+                @if ($errors->has('otherbenifits'))
+                    <p class="alert alert-danger">{{ $errors->first('otherbenifits') }}</p>
+                @endif
                 <!--company details-->
   
   
                 <div class="form-group">
                     <label for="category_id">Categroy</label>
-                    <select name="categroy_id" class="selectpicker border rounded form-control " id="category_id" data-style="btn-black" data-width="100%" data-live-search="true" title="Select Gender">
+                    <select name="category_id" class="selectpicker border rounded form-control " id="category_id" data-style="btn-black" data-width="100%" data-live-search="true" title="Select Gender">
                         @foreach ($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
@@ -121,10 +163,16 @@
                      
                     </select>
                 </div>
+                @if ($errors->has('category_id'))
+                    <p class="alert alert-danger">{{ $errors->first('category_id') }}</p>
+                @endif
                 <div class="form-group">
                     <label for="job-location">Images</label>
                     <input name="image" type="file" class="form-control">
                 </div>
+                @if ($errors->has('image'))
+                    <p class="alert alert-danger">{{ $errors->first('image') }}</p>
+                @endif
                 
                 <div class="col-lg-4 ml-auto">
                     <div class="row">  
