@@ -75,7 +75,8 @@ class AdminsController extends Controller
 
       public function displayCategories(){
 
-          $categories = Category::all();
+         // $categories = Category::all();
+         $categories = Category::orderBy('id','desc')->paginate(5);
 
           return view("admins.display-categories", compact('categories'));
       }//end method
@@ -141,8 +142,8 @@ class AdminsController extends Controller
       //jobs
       public function allJobs(){
 
-          $jobs = Job::all();
-
+         // $jobs = Job::all();
+          $jobs= Job::orderBy('id','desc')->paginate(3);
           return view('admins.all-jobs', compact('jobs'));
 
       }//end method
