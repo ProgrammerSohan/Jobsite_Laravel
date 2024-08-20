@@ -124,7 +124,8 @@
             <p>{{$job->id}}</p>
             <a href="{{route('single.job',$job->id)}}"></a>
             <div class="job-listing-logo">
-              <img src="{{ $job->image}}" alt="{{ $job->job_title}}" class="img-fluid">
+            <!-- <img src="{{ asset($job->image) }}" alt="{{ $job->job_title }}" class="img-fluid"> -->
+            <img src="{{ asset('assets/images/'.$job->image.'') }}" alt="{{ $job->job_title }}" class="img-fluid">
             </div>
 
             <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
@@ -184,7 +185,7 @@
     @foreach($wehave as $company)
     <div class="col-6 col-lg-3 col-md-6 text-center">
 
-      <img src="{{ $company->image}}" alt="{{ $company->job_title}}" class="img-fluid logo-1">
+      <img src="{{ asset('assets/images/'.$job->image.'') }}" alt="{{ $company->job_title}}" class="img-fluid logo-1">
       <strong>{{$company->company}}</strong>
     </div>
     @endforeach
@@ -210,7 +211,7 @@
               </blockquote>
             </div>
             <div class="col-lg-6 align-self-end text-center text-lg-right">
-              <img src="{{$slide->image}}" alt="Image" class="img-fluid mb-0">
+              <img src="{{ asset('assets/images/'.$job->image.'') }}" alt="Image" class="img-fluid mb-0">
             </div>
 
       </div>

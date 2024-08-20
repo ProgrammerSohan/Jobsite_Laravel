@@ -3,7 +3,7 @@
 @section('content')
 
  <!-- HOME -->
- <section class="section-hero overlay inner-page bg-image" style="background-image: url('{{ $job->image}}'); margin-top:-24px;" id="home-section">
+ <section class="section-hero overlay inner-page bg-image" style="background-image: url('{{ asset('assets/images/'.$job->image.'') }}'); margin-top:-24px;" id="home-section">
       <div class="container">
         <div class="row">
           <div class="col-md-7">
@@ -48,7 +48,8 @@
           <div class="col-lg-8 mb-4 mb-lg-0">
             <div class="d-flex align-items-center">
               <div class="border p-2 d-inline-block mr-3 rounded">
-                <img src="{{$job->image}}" width="100" height="100" alt="Image">
+                <img src="{{ asset('assets/images/'.$job->image.'') }}" width="100" height="100" alt="Image">
+               
               </div>
               <div>
                 <h2>{{ $job->job_title}}</h2>
@@ -64,7 +65,7 @@
         <div class="row">
           <div class="col-lg-8">
             <div class="mb-5">
-              <figure class="mb-5"><img src="{{$job->image}}" width="500" height="500" alt="Image" class="img-fluid rounded"></figure>
+              <figure class="mb-5"><img src="{{ asset('assets/images/'.$job->image.'') }}" width="500" height="500" alt="Image" class="img-fluid rounded"></figure>
               <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-align-left mr-3"></span>Job Description</h3>
               <p>{{$job->jobdescription}}</p>
 
@@ -187,7 +188,7 @@
           <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
             <a href="{{route('single.job', $job->id)}}"></a>
             <div class="job-listing-logo">
-              <img src="{{$job->image}}" alt="Image" class="img-fluid">
+              <img src="{{ asset('assets/images/'.$job->image.'') }}" alt="Image" class="img-fluid">
             </div>
 
             <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
