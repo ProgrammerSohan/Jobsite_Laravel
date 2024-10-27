@@ -78,7 +78,7 @@ class JobsController extends Controller
 
     public function jobApply(Request $request){
 
-        if($request->cv == 'No CV'){
+        if(Auth::user()->cv == 'No CV'){
 
   return redirect('/jobs/single/'.$request->job_id.'')->with('apply','upload your CV first in the profile page');
 
