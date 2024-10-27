@@ -78,5 +78,6 @@ Route::post('/create-jobs', [AdminsController::class, 'storeJobs'])->name('store
 Route::get('/delete-jobs/{id}', [AdminsController::class, 'deleteJobs'])->name('delete.jobs');
 
 Route::get('/display-apps', [AdminsController::class, 'displayApps'])->name('display.apps');
+Route::get('/delete-apps/{id}',[AdminsController::class,'deleteApps'])->name('delete.apps');
 
 });
